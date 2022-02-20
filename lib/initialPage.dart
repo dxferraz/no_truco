@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'menu.dart';
 import 'myhomepage.dart';
 
@@ -71,12 +72,15 @@ class _InitialPageState extends State<InitialPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const HomePage()),
-                    );
-                  },
+                  onPressed: () => Navigator.of(context).push(
+                    PageTransition(
+                      type: PageTransitionType.rightToLeft,
+                      // ignore: prefer_const_constructors
+                      duration: Duration(milliseconds: 500),
+                      // ignore: prefer_const_constructors
+                      child: HomePage(),
+                    ),
+                  ),
                   child: Image.asset(
                     'src/img/start.png',
                     width: 50,
@@ -85,7 +89,7 @@ class _InitialPageState extends State<InitialPage> {
                 ),
               ],
             ),
-            Spacer(flex: 1),
+            const Spacer(flex: 1),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
@@ -96,7 +100,7 @@ class _InitialPageState extends State<InitialPage> {
                 ),
               ],
             ),
-            Spacer(flex: 4),
+            const Spacer(flex: 4),
           ],
         ),
       ),

@@ -13,26 +13,19 @@ class HomePage extends StatefulWidget {
 HomePage home = const HomePage();
 
 class HomePageState extends State<HomePage> {
-
   //Add points to A Team
   void increment1APoint() {
-    setState(() {
-      aPoints++;
-    });
+    setState(() => aPoints++);
     verify();
   }
 
   void increment3APoints() {
-    setState(() {
-      aPoints = aPoints + 3;
-    });
+    setState(() => aPoints = aPoints + 3);
     verify();
   }
 
   void increment6APoints() {
-    setState(() {
-      aPoints = aPoints + 6;
-    });
+    setState(() => aPoints = aPoints + 6);
     verify();
   }
 
@@ -46,23 +39,17 @@ class HomePageState extends State<HomePage> {
 
   //Add points to B Team
   void increment1BPoint() {
-    setState(() {
-      bPoints++;
-    });
+    setState(() => bPoints++);
     verify();
   }
 
   void increment3BPoints() {
-    setState(() {
-      bPoints = bPoints + 3;
-    });
+    setState(() => bPoints = bPoints + 3);
     verify();
   }
 
   void increment6BPoints() {
-    setState(() {
-      bPoints = bPoints + 6;
-    });
+    setState(() => bPoints = bPoints + 6);
     verify();
   }
 
@@ -92,123 +79,120 @@ class HomePageState extends State<HomePage> {
         },
       );
       setState(() {
-      aPoints = aPoints = 0;
-      bPoints = bPoints = 0;
+        aPoints = aPoints = 0;
+        bPoints = bPoints = 0;
       });
     }
   }
 
   //Confirm restart
   void confirmRestart() {
-    if(aPoints==0){
-  
-    }else{
+    if (aPoints == 0) {
+    } else {
       showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        // retorna um objeto do tipo Dialog
-        return Padding(
-          padding: const EdgeInsets.all(60),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10)
-            ),
-            child: AlertDialog(
-          backgroundColor: const Color(0xFF1A1A1A),
-          title: Text(
-            "Tem certeza que quer recomeçar a partida?",
-            style: TextStyle(
-              fontFamily: 'Ubuntu',
-              fontSize: 18,
-              color: Colors.grey.shade100,
-            ),
-          ),
-          actions: <Widget>[
-            TextButton(
-              child: Text(
-                "Cancelar",
-                style: TextStyle(
-                  fontFamily: 'Ubuntu',
-                  color: Colors.red.shade300,
-                ),
-              ),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            TextButton(
-              child: Text(
-                "Sim",
-                style: TextStyle(
-                  fontFamily: 'Ubuntu',
-                  color: Colors.blue.shade300,
-                ),
-              ),
-              onPressed: () {
-                restart();
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        ),
-            ),
-        );
-      },
-    );
-    }
-    if(bPoints==0){
-
-    }else{
-      showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return Padding(
-          padding: const EdgeInsets.all(60),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10)
-            ),
-            child: AlertDialog(
-              backgroundColor: const Color(0xFF1A1A1A),
-              title: Text(
-                "Tem certeza que quer recomeçar a partida?",
+        context: context,
+        builder: (BuildContext context) {
+          // return a dialog object type
+          return Padding(
+            padding: const EdgeInsets.all(60),
+            child: Container(
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(10)),
+              child: AlertDialog(
+                backgroundColor: const Color(0xFF1A1A1A),
+                title: Text(
+                  "Tem certeza que quer recomeçar a partida?",
                   style: TextStyle(
                     fontFamily: 'Ubuntu',
                     fontSize: 18,
                     color: Colors.grey.shade100,
                   ),
-              ),
-          actions: <Widget>[
-            TextButton(
-              child: Text(
-                "Cancelar",
-                style: TextStyle(
-                  fontFamily: 'Ubuntu',
-                  color: Colors.red.shade300,
                 ),
+                actions: <Widget>[
+                  TextButton(
+                    child: Text(
+                      "Cancelar",
+                      style: TextStyle(
+                        fontFamily: 'Ubuntu',
+                        color: Colors.red.shade300,
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  TextButton(
+                    child: Text(
+                      "Sim",
+                      style: TextStyle(
+                        fontFamily: 'Ubuntu',
+                        color: Colors.blue.shade300,
+                      ),
+                    ),
+                    onPressed: () {
+                      restart();
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
               ),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
             ),
-            TextButton(
-              child: Text(
-                "Sim",
-                style: TextStyle(
-                  fontFamily: 'Ubuntu',
-                  color: Colors.blue.shade300,
+          );
+        },
+      );
+    }
+    if (bPoints == 0) {
+    } else {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          // return a dialog object type
+          return Padding(
+            padding: const EdgeInsets.all(60),
+            child: Container(
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(10)),
+              child: AlertDialog(
+                backgroundColor: const Color(0xFF1A1A1A),
+                title: Text(
+                  "Tem certeza que quer recomeçar a partida?",
+                  style: TextStyle(
+                    fontFamily: 'Ubuntu',
+                    fontSize: 18,
+                    color: Colors.grey.shade100,
+                  ),
                 ),
+                actions: <Widget>[
+                  TextButton(
+                    child: Text(
+                      "Cancelar",
+                      style: TextStyle(
+                        fontFamily: 'Ubuntu',
+                        color: Colors.red.shade300,
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  TextButton(
+                    child: Text(
+                      "Sim",
+                      style: TextStyle(
+                        fontFamily: 'Ubuntu',
+                        color: Colors.blue.shade300,
+                      ),
+                    ),
+                    onPressed: () {
+                      restart();
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
               ),
-              onPressed: () {
-                restart();
-                Navigator.of(context).pop();
-              },
             ),
-          ],
-            ),
-          ),
-        );
-      },
+          );
+        },
       );
     }
   }
@@ -234,9 +218,7 @@ class HomePageState extends State<HomePage> {
                   color: Colors.red.shade300,
                 ),
               ),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
+              onPressed: () => Navigator.of(context).pop(),
             ),
             TextButton(
               child: Text(
@@ -255,23 +237,26 @@ class HomePageState extends State<HomePage> {
       },
     );
   }
+
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF1A1A1A),
-        key: _scaffoldKey,
-        endDrawer: const ClipRRect(
-          borderRadius: BorderRadius.only(
-          topRight: Radius.circular(35),
-          bottomRight: Radius.circular(35)
-          ),
-          child: Menu(),
-        ),
-        appBar: AppBar(
+      key: _scaffoldKey,
+      drawer: const ClipRRect(
+        borderRadius: BorderRadius.only(
+            topRight: Radius.circular(35), bottomRight: Radius.circular(35)),
+        child: Menu(),
+      ),
+      appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
-        title: const Text("NoTruco", style: TextStyle(color: Color(0xFFCCCCCC), fontSize: 25, fontFamily: 'Conthrax'),),
+        title: const Text(
+          "NoTruco",
+          style: TextStyle(
+              color: Color(0xFFCCCCCC), fontSize: 25, fontFamily: 'Conthrax'),
+        ),
         centerTitle: true,
         actions: const [],
       ),
@@ -294,7 +279,7 @@ class HomePageState extends State<HomePage> {
                       alignment: Alignment.center,
                       width: 70,
                       height: 70,
-                      ),
+                    ),
                   ],
                 ),
                 const Spacer(flex: 2),
@@ -327,57 +312,52 @@ class HomePageState extends State<HomePage> {
                 Row(
                   children: [
                     TextButton(
-                      onPressed: (){increment1APoint();},
-                      child: Image.asset(
-                        'src/img/+1Button.png',
-                        width: 60,
-                        height: 60,
-                      )
-                    ),
+                        onPressed: () => increment1APoint(),
+                        child: Image.asset(
+                          'src/img/+1Button.png',
+                          width: 60,
+                          height: 60,
+                        )),
                   ],
                 ),
                 Row(
                   children: [
                     TextButton(
-                      onPressed: (){increment3APoints();},
-                      child: Image.asset(
-                        'src/img/+3Button.png',
-                        width: 60,
-                        height: 60,
-                      )
-                    ),
+                        onPressed: () => increment3APoints(),
+                        child: Image.asset(
+                          'src/img/+3Button.png',
+                          width: 60,
+                          height: 60,
+                        )),
                     TextButton(
-                      onPressed: (){increment6APoints();},
-                      child: Image.asset(
-                        'src/img/+6Button.png',
-                        width: 60,
-                        height: 60,
-                      )
-                    ),
+                        onPressed: () => increment6APoints(),
+                        child: Image.asset(
+                          'src/img/+6Button.png',
+                          width: 60,
+                          height: 60,
+                        )),
                   ],
                 ),
                 Row(
                   children: [
                     TextButton(
-                      onPressed: (){less1APoint();},
-                      child: Image.asset(
-                        'src/img/-1Button.png',
-                        width: 60,
-                        height: 60,
-                      )
-                    ),
+                        onPressed: () => less1APoint(),
+                        child: Image.asset(
+                          'src/img/-1Button.png',
+                          width: 60,
+                          height: 60,
+                        )),
                   ],
                 ),
                 const Spacer(flex: 2),
                 Row(
                   children: [
                     TextButton(
-                      onPressed: (){confirmRestart();},
-                      child: Image.asset(
-                        'src/img/RestartButton.png',
-                        width: 150,
-                      )
-                    ),
+                        onPressed: () => confirmRestart(),
+                        child: Image.asset(
+                          'src/img/RestartButton.png',
+                          width: 150,
+                        )),
                   ],
                 ),
                 const Spacer(flex: 1),
@@ -427,7 +407,7 @@ class HomePageState extends State<HomePage> {
                 Row(
                   children: [
                     TextButton(
-                        onPressed: (){increment1BPoint();},
+                        onPressed: () => increment1BPoint(),
                         child: Image.asset(
                           'src/img/+1Button.png',
                           width: 60,
@@ -438,26 +418,25 @@ class HomePageState extends State<HomePage> {
                 Row(
                   children: [
                     TextButton(
-                        onPressed: (){increment3BPoints();},
+                        onPressed: () => increment3BPoints(),
                         child: Image.asset(
                           'src/img/+3Button.png',
                           width: 60,
                           height: 60,
                         )),
                     TextButton(
-                      onPressed: (){increment6BPoints();},
+                        onPressed: () => increment6BPoints(),
                         child: Image.asset(
                           'src/img/+6Button.png',
                           width: 60,
                           height: 60,
-                        )
-                    ),
+                        )),
                   ],
                 ),
                 Row(
                   children: [
                     TextButton(
-                        onPressed: (){less1BPoint();},
+                        onPressed: () => less1BPoint(),
                         child: Image.asset(
                           'src/img/-1Button.png',
                           width: 60,
@@ -469,12 +448,13 @@ class HomePageState extends State<HomePage> {
                 Row(
                   children: [
                     TextButton(
-                      onPressed: (){confirmFinish();},
-                      child: Image.asset(
-                        'src/img/FinishButton.png',
-                        width: 150,
-                      )
-                    ),
+                        onPressed: () {
+                          confirmFinish();
+                        },
+                        child: Image.asset(
+                          'src/img/FinishButton.png',
+                          width: 150,
+                        )),
                   ],
                 ),
                 const Spacer(flex: 1),
