@@ -17,13 +17,13 @@ class _ShowAWinnerState extends State<ShowAWinner> {
       backgroundColor: Colors.black45,
       body: Padding(
         padding:
-            const EdgeInsets.only(top: 150, right: 50, bottom: 150, left: 50),
+            const EdgeInsets.only(top: 150, right: 40, bottom: 150, left: 40),
         child: Container(
             decoration: BoxDecoration(
               color: const Color(0xFF1A1A1A),
               borderRadius: BorderRadius.circular(25),
             ),
-            padding: const EdgeInsets.all(0),
+            padding: const EdgeInsets.all(10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -34,7 +34,7 @@ class _ShowAWinnerState extends State<ShowAWinner> {
                       "O Time",
                       style: TextStyle(
                         fontFamily: 'Ubuntu',
-                        fontSize: 35,
+                        fontSize: 32,
                         color: Color(0xFFCCCCCC),
                       ),
                     ),
@@ -52,7 +52,7 @@ class _ShowAWinnerState extends State<ShowAWinner> {
                       "Venceu a partida",
                       style: TextStyle(
                         fontFamily: 'Ubuntu',
-                        fontSize: 30,
+                        fontSize: 28,
                         color: Color(0xFFCCCCCC),
                       ),
                     ),
@@ -126,13 +126,13 @@ class _ShowBWinnerState extends State<ShowBWinner> {
       backgroundColor: Colors.black45,
       body: Padding(
         padding:
-            const EdgeInsets.only(top: 150, right: 50, bottom: 150, left: 50),
+            const EdgeInsets.only(top: 150, right: 40, bottom: 150, left: 40),
         child: Container(
             decoration: BoxDecoration(
               color: const Color(0xFF1A1A1A),
               borderRadius: BorderRadius.circular(25),
             ),
-            padding: const EdgeInsets.all(0),
+            padding: const EdgeInsets.all(10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -143,7 +143,7 @@ class _ShowBWinnerState extends State<ShowBWinner> {
                       "O Time",
                       style: TextStyle(
                         fontFamily: 'Ubuntu',
-                        fontSize: 35,
+                        fontSize: 32,
                         color: Color(0xFFCCCCCC),
                       ),
                     ),
@@ -161,7 +161,7 @@ class _ShowBWinnerState extends State<ShowBWinner> {
                       "Venceu a partida",
                       style: TextStyle(
                         fontFamily: 'Ubuntu',
-                        fontSize: 30,
+                        fontSize: 28,
                         color: Color(0xFFCCCCCC),
                       ),
                     ),

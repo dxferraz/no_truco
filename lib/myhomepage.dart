@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:no_truco/Components/timer.dart';
+import 'package:page_transition/page_transition.dart';
 import 'showWinner.dart';
 import 'menu.dart';
 import 'var.dart';
@@ -31,11 +31,13 @@ class HomePageState extends State<HomePage> {
   }
 
   void less1APoint() {
-    setState(() {
-      if (aPoints > 0) {
-        aPoints = aPoints - 1;
-      } else {}
-    });
+    setState(
+      () {
+        if (aPoints > 0) {
+          aPoints = aPoints - 1;
+        } else {}
+      },
+    );
   }
 
   //Add points to B Team
@@ -55,46 +57,58 @@ class HomePageState extends State<HomePage> {
   }
 
   void less1BPoint() {
-    setState(() {
-      if (bPoints > 0) {
-        bPoints = bPoints - 1;
-      } else {}
-    });
+    setState(
+      () {
+        if (bPoints > 0) {
+          bPoints = bPoints - 1;
+        } else {}
+      },
+    );
   }
 
   //Restart points
   void restart() {
-    setState(() {
-      aPoints = aPoints = 0;
-      bPoints = bPoints = 0;
-    });
+    setState(
+      () {
+        aPoints = aPoints = 0;
+        bPoints = bPoints = 0;
+      },
+    );
   }
 
   //Verify winner
   void verify() {
     if (aPoints >= 12) {
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return const ShowAWinner();
+      Navigator.of(context).push(
+        PageTransition(
+          type: PageTransitionType.scale,
+          duration: const Duration(seconds: 1),
+          alignment: Alignment.center,
+          child: const ShowAWinner(),
+        ),
+      );
+      setState(
+        () {
+          aPoints = aPoints = 0;
+          bPoints = bPoints = 0;
         },
       );
-      setState(() {
-        aPoints = aPoints = 0;
-        bPoints = bPoints = 0;
-      });
     }
     if (bPoints >= 12) {
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return const ShowBWinner();
+      Navigator.of(context).push(
+        PageTransition(
+          type: PageTransitionType.scale,
+          duration: const Duration(seconds: 1),
+          alignment: Alignment.center,
+          child: const ShowBWinner(),
+        ),
+      );
+      setState(
+        () {
+          aPoints = aPoints = 0;
+          bPoints = bPoints = 0;
         },
       );
-      setState(() {
-        aPoints = aPoints = 0;
-        bPoints = bPoints = 0;
-      });
     }
   }
 
@@ -278,204 +292,199 @@ class HomePageState extends State<HomePage> {
           color: Color(0xFF1A1A1A),
         ),
         padding: const EdgeInsets.all(16),
-        child: Column(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            const TimerWidget(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //Left Side
+            Column(
               children: [
-                //Left Side
-                Column(
+                const Spacer(flex: 1),
+                Row(
                   children: [
-                    const Spacer(flex: 1),
-                    Row(
-                      children: [
-                        Image.asset(
-                          'src/img/ClubsIcon.png',
-                          alignment: Alignment.center,
-                          width: 70,
-                          height: 70,
-                        ),
-                      ],
+                    Image.asset(
+                      'src/img/ClubsIcon.png',
+                      alignment: Alignment.center,
+                      width: 70,
+                      height: 70,
                     ),
-                    const Spacer(flex: 2),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          '$aPoints',
-                          style: TextStyle(
-                            fontFamily: 'Conthrax',
-                            color: Colors.grey.shade500,
-                            fontSize: 70,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Pts',
-                          style: TextStyle(
-                            color: Colors.grey.shade700,
-                            fontSize: 30,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const Spacer(flex: 2),
-                    Row(
-                      children: [
-                        TextButton(
-                            onPressed: () => increment1APoint(),
-                            child: Image.asset(
-                              'src/img/+1Button.png',
-                              width: 60,
-                              height: 60,
-                            )),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        TextButton(
-                            onPressed: () => increment3APoints(),
-                            child: Image.asset(
-                              'src/img/+3Button.png',
-                              width: 60,
-                              height: 60,
-                            )),
-                        TextButton(
-                            onPressed: () => increment6APoints(),
-                            child: Image.asset(
-                              'src/img/+6Button.png',
-                              width: 60,
-                              height: 60,
-                            )),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        TextButton(
-                            onPressed: () => less1APoint(),
-                            child: Image.asset(
-                              'src/img/-1Button.png',
-                              width: 60,
-                              height: 60,
-                            )),
-                      ],
-                    ),
-                    const Spacer(flex: 2),
-                    Row(
-                      children: [
-                        TextButton(
-                            onPressed: () => confirmRestart(),
-                            child: Image.asset(
-                              'src/img/RestartButton.png',
-                              width: 150,
-                            )),
-                      ],
-                    ),
-                    const Spacer(flex: 1),
                   ],
                 ),
-                //Right Side
-                Column(
+                const Spacer(flex: 2),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Spacer(flex: 1),
-                    Row(
-                      children: [
-                        Image.asset(
-                          'src/img/HeartsIcon.png',
-                          alignment: Alignment.center,
-                          width: 70,
-                          height: 70,
-                        ),
-                      ],
+                    Text(
+                      '$aPoints',
+                      style: TextStyle(
+                        fontFamily: 'Conthrax',
+                        color: Colors.grey.shade500,
+                        fontSize: 70,
+                      ),
                     ),
-                    const Spacer(flex: 2),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          '$bPoints',
-                          style: TextStyle(
-                            fontFamily: 'Conthrax',
-                            color: Colors.grey.shade500,
-                            fontSize: 70,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Pts',
-                          style: TextStyle(
-                            color: Colors.grey.shade700,
-                            fontSize: 30,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const Spacer(flex: 2),
-                    Row(
-                      children: [
-                        TextButton(
-                            onPressed: () => increment1BPoint(),
-                            child: Image.asset(
-                              'src/img/+1Button.png',
-                              width: 60,
-                              height: 60,
-                            )),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        TextButton(
-                            onPressed: () => increment3BPoints(),
-                            child: Image.asset(
-                              'src/img/+3Button.png',
-                              width: 60,
-                              height: 60,
-                            )),
-                        TextButton(
-                            onPressed: () => increment6BPoints(),
-                            child: Image.asset(
-                              'src/img/+6Button.png',
-                              width: 60,
-                              height: 60,
-                            )),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        TextButton(
-                            onPressed: () => less1BPoint(),
-                            child: Image.asset(
-                              'src/img/-1Button.png',
-                              width: 60,
-                              height: 60,
-                            )),
-                      ],
-                    ),
-                    const Spacer(flex: 2),
-                    Row(
-                      children: [
-                        TextButton(
-                            onPressed: () {
-                              confirmFinish();
-                            },
-                            child: Image.asset(
-                              'src/img/FinishButton.png',
-                              width: 150,
-                            )),
-                      ],
-                    ),
-                    const Spacer(flex: 1),
                   ],
                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Pts',
+                      style: TextStyle(
+                        color: Colors.grey.shade700,
+                        fontSize: 30,
+                      ),
+                    ),
+                  ],
+                ),
+                const Spacer(flex: 2),
+                Row(
+                  children: [
+                    TextButton(
+                        onPressed: () => increment1APoint(),
+                        child: Image.asset(
+                          'src/img/+1Button.png',
+                          width: 60,
+                          height: 60,
+                        )),
+                  ],
+                ),
+                Row(
+                  children: [
+                    TextButton(
+                        onPressed: () => increment3APoints(),
+                        child: Image.asset(
+                          'src/img/+3Button.png',
+                          width: 60,
+                          height: 60,
+                        )),
+                    TextButton(
+                        onPressed: () => increment6APoints(),
+                        child: Image.asset(
+                          'src/img/+6Button.png',
+                          width: 60,
+                          height: 60,
+                        )),
+                  ],
+                ),
+                Row(
+                  children: [
+                    TextButton(
+                        onPressed: () => less1APoint(),
+                        child: Image.asset(
+                          'src/img/-1Button.png',
+                          width: 60,
+                          height: 60,
+                        )),
+                  ],
+                ),
+                const Spacer(flex: 2),
+                Row(
+                  children: [
+                    TextButton(
+                        onPressed: () => confirmRestart(),
+                        child: Image.asset(
+                          'src/img/RestartButton.png',
+                          width: 150,
+                        )),
+                  ],
+                ),
+                const Spacer(flex: 1),
+              ],
+            ),
+            //Right Side
+            Column(
+              children: [
+                const Spacer(flex: 1),
+                Row(
+                  children: [
+                    Image.asset(
+                      'src/img/HeartsIcon.png',
+                      alignment: Alignment.center,
+                      width: 70,
+                      height: 70,
+                    ),
+                  ],
+                ),
+                const Spacer(flex: 2),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      '$bPoints',
+                      style: TextStyle(
+                        fontFamily: 'Conthrax',
+                        color: Colors.grey.shade500,
+                        fontSize: 70,
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Pts',
+                      style: TextStyle(
+                        color: Colors.grey.shade700,
+                        fontSize: 30,
+                      ),
+                    ),
+                  ],
+                ),
+                const Spacer(flex: 2),
+                Row(
+                  children: [
+                    TextButton(
+                        onPressed: () => increment1BPoint(),
+                        child: Image.asset(
+                          'src/img/+1Button.png',
+                          width: 60,
+                          height: 60,
+                        )),
+                  ],
+                ),
+                Row(
+                  children: [
+                    TextButton(
+                        onPressed: () => increment3BPoints(),
+                        child: Image.asset(
+                          'src/img/+3Button.png',
+                          width: 60,
+                          height: 60,
+                        )),
+                    TextButton(
+                        onPressed: () => increment6BPoints(),
+                        child: Image.asset(
+                          'src/img/+6Button.png',
+                          width: 60,
+                          height: 60,
+                        )),
+                  ],
+                ),
+                Row(
+                  children: [
+                    TextButton(
+                        onPressed: () => less1BPoint(),
+                        child: Image.asset(
+                          'src/img/-1Button.png',
+                          width: 60,
+                          height: 60,
+                        )),
+                  ],
+                ),
+                const Spacer(flex: 2),
+                Row(
+                  children: [
+                    TextButton(
+                        onPressed: () {
+                          confirmFinish();
+                        },
+                        child: Image.asset(
+                          'src/img/FinishButton.png',
+                          width: 150,
+                        )),
+                  ],
+                ),
+                const Spacer(flex: 1),
               ],
             ),
           ],

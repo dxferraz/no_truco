@@ -41,18 +41,23 @@ class _MenuState extends State<Menu> {
           Row(
             children: [
               TextButton(
-                  style: TextButton.styleFrom(
-                    primary: const Color(0xFFCCCCCC),
-                    textStyle:
-                        const TextStyle(fontFamily: 'CairoSBold', fontSize: 24),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Historic()),
-                    );
-                  },
-                  child: const Text("Histórico"))
+                style: TextButton.styleFrom(
+                  primary: const Color(0xFFCCCCCC),
+                  textStyle:
+                      const TextStyle(fontFamily: 'CairoSBold', fontSize: 24),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Historic(),
+                    ),
+                  );
+                },
+                child: const Text(
+                  "Histórico",
+                ),
+              )
             ],
           ),
           const Spacer(flex: 1),
@@ -96,18 +101,21 @@ class _MenuState extends State<Menu> {
           Row(
             children: [
               TextButton(
-                  style: TextButton.styleFrom(
-                    primary: const Color(0xFFCCCCCC),
-                    textStyle:
-                        const TextStyle(fontFamily: 'CairoSBold', fontSize: 24),
+                style: TextButton.styleFrom(
+                  primary: const Color(0xFFCCCCCC),
+                  textStyle: const TextStyle(
+                    fontFamily: 'CairoSBold',
+                    fontSize: 24,
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Historic()),
-                    );
-                  },
-                  child: const Text("Desconectar"))
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Historic()),
+                  );
+                },
+                child: const Text("Desconectar"),
+              )
             ],
           ),
           const Spacer(flex: 4),
@@ -115,23 +123,24 @@ class _MenuState extends State<Menu> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextButton(
-                  style: TextButton.styleFrom(
-                    primary: const Color(0xFFCCCCCC),
-                    textStyle:
-                        const TextStyle(fontFamily: 'Conthrax', fontSize: 24),
+                style: TextButton.styleFrom(
+                  primary: const Color(0xFFCCCCCC),
+                  textStyle:
+                      const TextStyle(fontFamily: 'Conthrax', fontSize: 24),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Historic()),
+                  );
+                },
+                child: const Text(
+                  "Dxferraz",
+                  style: TextStyle(
+                    fontSize: 20,
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Historic()),
-                    );
-                  },
-                  child: const Text(
-                    "Dxferraz",
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
-                  ))
+                ),
+              )
             ],
           ),
         ],
