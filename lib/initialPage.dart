@@ -72,15 +72,18 @@ class _InitialPageState extends State<InitialPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextButton(
-                  onPressed: () => Navigator.of(context).push(
-                    PageTransition(
-                      type: PageTransitionType.rightToLeft,
-                      // ignore: prefer_const_constructors
-                      duration: Duration(milliseconds: 500),
-                      // ignore: prefer_const_constructors
-                      child: HomePage(),
-                    ),
-                  ),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      PageTransition(
+                        type: PageTransitionType.rightToLeft,
+                        // ignore: prefer_const_constructors
+                        duration: Duration(milliseconds: 500),
+                        // ignore: prefer_const_constructors
+                        child: HomePage(),
+                      ),
+                    );
+                    //startTimer();
+                  },
                   child: Image.asset(
                     'src/img/start.png',
                     width: 50,
