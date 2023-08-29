@@ -21,11 +21,11 @@ class _MyAccountState extends State<MyAccount> {
             color: Color(0xFF1A1A1A),
             borderRadius: BorderRadius.all(Radius.circular(25)),),
           padding: const EdgeInsets.only(top: 30, right: 20, left: 20, bottom: 30),
-          child: Column(
+          child: const Column(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Text(
                     "Minha Conta",
                     style:

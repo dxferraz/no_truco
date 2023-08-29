@@ -25,9 +25,9 @@ class _MenuState extends State<Menu> {
       child: Column(
         children: [
           const Spacer(flex: 1),
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Text(
                 "Menu",
                 style: TextStyle(
@@ -42,8 +42,7 @@ class _MenuState extends State<Menu> {
             children: [
               TextButton(
                 style: TextButton.styleFrom(
-                  primary: const Color(0xFFCCCCCC),
-                  textStyle:
+                  foregroundColor: const Color(0xFFCCCCCC), textStyle:
                       const TextStyle(fontFamily: 'CairoSBold', fontSize: 24),
                 ),
                 onPressed: () {
@@ -65,8 +64,7 @@ class _MenuState extends State<Menu> {
             children: [
               TextButton(
                   style: TextButton.styleFrom(
-                    primary: const Color(0xFFCCCCCC),
-                    textStyle:
+                    foregroundColor: const Color(0xFFCCCCCC), textStyle:
                         const TextStyle(fontFamily: 'CairoSBold', fontSize: 24),
                   ),
                   onPressed: () {
@@ -84,8 +82,7 @@ class _MenuState extends State<Menu> {
             children: [
               TextButton(
                   style: TextButton.styleFrom(
-                    primary: const Color(0xFFCCCCCC),
-                    textStyle:
+                    foregroundColor: const Color(0xFFCCCCCC), textStyle:
                         const TextStyle(fontFamily: 'CairoSBold', fontSize: 24),
                   ),
                   onPressed: () {
@@ -102,8 +99,7 @@ class _MenuState extends State<Menu> {
             children: [
               TextButton(
                 style: TextButton.styleFrom(
-                  primary: const Color(0xFFCCCCCC),
-                  textStyle: const TextStyle(
+                  foregroundColor: const Color(0xFFCCCCCC), textStyle: const TextStyle(
                     fontFamily: 'CairoSBold',
                     fontSize: 24,
                   ),
@@ -124,8 +120,7 @@ class _MenuState extends State<Menu> {
             children: [
               TextButton(
                 style: TextButton.styleFrom(
-                  primary: const Color(0xFFCCCCCC),
-                  textStyle:
+                  foregroundColor: const Color(0xFFCCCCCC), textStyle:
                       const TextStyle(fontFamily: 'Conthrax', fontSize: 24),
                 ),
                 onPressed: () {

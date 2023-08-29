@@ -23,9 +23,9 @@ class _HistoricState extends State<Historic> {
           padding: const EdgeInsets.only(top: 30, right: 20, left: 20, bottom: 30),
           child: Column(
             children: [
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Text(
                     "Histórico",
                     style:

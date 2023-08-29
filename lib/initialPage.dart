@@ -38,7 +38,7 @@ class _InitialPageState extends State<InitialPage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             const Spacer(flex: 4),
-            SizedBox(
+            const SizedBox(
               height: 300,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -46,7 +46,7 @@ class _InitialPageState extends State<InitialPage> {
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
+                    children: [
                       Text(
                         "Olá!",
                         style:
@@ -54,12 +54,12 @@ class _InitialPageState extends State<InitialPage> {
                       ),
                     ],
                   ),
-                  const Text(
+                  Text(
                     "Seja bem vindo ao NoTruco",
                     style: TextStyle(fontSize: 26, color: Color(0xFFCCCCCC)),
                     textAlign: TextAlign.center,
                   ),
-                  const Text(
+                  Text(
                     "O contador de pontos mais fácil de usar!",
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 20, color: Color(0xFFB3B3B3)),
@@ -93,9 +93,9 @@ class _InitialPageState extends State<InitialPage> {
               ],
             ),
             const Spacer(flex: 1),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 Text(
                   "Começar",
                   textAlign: TextAlign.center,

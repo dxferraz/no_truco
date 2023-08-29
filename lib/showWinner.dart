@@ -27,9 +27,9 @@ class _ShowAWinnerState extends State<ShowAWinner> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     Text(
                       "O Time",
                       style: TextStyle(
@@ -45,9 +45,9 @@ class _ShowAWinnerState extends State<ShowAWinner> {
                   width: 100,
                   height: 100,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     Text(
                       "Venceu a partida",
                       style: TextStyle(
@@ -136,9 +136,9 @@ class _ShowBWinnerState extends State<ShowBWinner> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     Text(
                       "O Time",
                       style: TextStyle(
@@ -154,9 +154,9 @@ class _ShowBWinnerState extends State<ShowBWinner> {
                   width: 100,
                   height: 100,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     Text(
                       "Venceu a partida",
                       style: TextStyle(
