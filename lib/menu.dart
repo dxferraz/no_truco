@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'config.dart';
 import 'historic.dart';
-import 'myAccount.dart';
+import 'my_account.dart';
 
 class Menu extends StatefulWidget {
   const Menu({Key? key}) : super(key: key);

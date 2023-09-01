@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import 'showWinner.dart';
+import 'Components/popups/show_winner.dart';
 import 'menu.dart';
 import 'var.dart';
 
@@ -302,7 +302,7 @@ class HomePageState extends State<HomePage> {
                 Row(
                   children: [
                     Image.asset(
-                      'src/img/ClubsIcon.png',
+                      'assets/images/ClubsIcon.png',
                       alignment: Alignment.center,
                       width: 70,
                       height: 70,
@@ -329,7 +329,9 @@ class HomePageState extends State<HomePage> {
                     Text(
                       'Pts',
                       style: TextStyle(
+                        fontFamily: "Montserrat",
                         color: Colors.grey.shade700,
+                        fontWeight: FontWeight.w500,
                         fontSize: 30,
                       ),
                     ),
@@ -339,52 +341,112 @@ class HomePageState extends State<HomePage> {
                 Row(
                   children: [
                     TextButton(
-                        onPressed: () => increment1APoint(),
-                        child: Image.asset(
-                          'src/img/+1Button.png',
-                          width: 60,
-                          height: 60,
-                        )),
+                      onPressed: () => increment1APoint(),
+                      child: Container(
+                        padding: const EdgeInsets.all(18),
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color.fromARGB(255, 158, 158, 158),
+                        ),
+                        child: const Text(
+                          "+1",
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 26, 26, 26),
+                            fontSize: 24,
+                            fontFamily: "Conthrax",
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
                 Row(
                   children: [
                     TextButton(
-                        onPressed: () => increment3APoints(),
-                        child: Image.asset(
-                          'src/img/+3Button.png',
-                          width: 60,
-                          height: 60,
-                        )),
+                      onPressed: () => increment3APoints(),
+                      child: Container(
+                        padding: const EdgeInsets.all(16),
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color.fromARGB(255, 158, 158, 158),
+                        ),
+                        child: const Text(
+                          "+3",
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 26, 26, 26),
+                            fontSize: 24,
+                            fontFamily: "Conthrax",
+                          ),
+                        ),
+                      ),
+                    ),
                     TextButton(
-                        onPressed: () => increment6APoints(),
-                        child: Image.asset(
-                          'src/img/+6Button.png',
-                          width: 60,
-                          height: 60,
-                        )),
+                      onPressed: () => increment6APoints(),
+                      child: Container(
+                        padding: const EdgeInsets.all(16),
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color.fromARGB(255, 158, 158, 158),
+                        ),
+                        child: const Text(
+                          "+6",
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 26, 26, 26),
+                            fontSize: 24,
+                            fontFamily: "Conthrax",
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
                 Row(
                   children: [
                     TextButton(
-                        onPressed: () => less1APoint(),
-                        child: Image.asset(
-                          'src/img/-1Button.png',
-                          width: 60,
-                          height: 60,
-                        )),
+                      onPressed: () => less1APoint(),
+                      child: Container(
+                        padding: const EdgeInsets.all(20),
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color.fromARGB(255, 175, 127, 126),
+                        ),
+                        child: const Text(
+                          "-1",
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 26, 26, 26),
+                            fontSize: 24,
+                            fontFamily: "Conthrax",
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
                 const Spacer(flex: 2),
                 Row(
                   children: [
                     TextButton(
-                        onPressed: () => confirmRestart(),
-                        child: Image.asset(
-                          'src/img/RestartButton.png',
-                          width: 150,
-                        )),
+                      onPressed: () => confirmRestart(),
+                      child: Container(
+                        padding: const EdgeInsets.all(16),
+                        width: 150,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.rectangle,
+                          borderRadius: BorderRadius.all(Radius.circular(70)),
+                          color: Color.fromARGB(255, 179, 179, 179),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            "Recomeçar",
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 26, 26, 26),
+                              fontSize: 14,
+                              fontFamily: "Conthrax",
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
                 const Spacer(flex: 1),
@@ -397,7 +459,7 @@ class HomePageState extends State<HomePage> {
                 Row(
                   children: [
                     Image.asset(
-                      'src/img/HeartsIcon.png',
+                      'assets/images/HeartsIcon.png',
                       alignment: Alignment.center,
                       width: 70,
                       height: 70,
@@ -424,7 +486,9 @@ class HomePageState extends State<HomePage> {
                     Text(
                       'Pts',
                       style: TextStyle(
+                        fontFamily: "Montserrat",
                         color: Colors.grey.shade700,
+                        fontWeight: FontWeight.w500,
                         fontSize: 30,
                       ),
                     ),
@@ -434,54 +498,114 @@ class HomePageState extends State<HomePage> {
                 Row(
                   children: [
                     TextButton(
-                        onPressed: () => increment1BPoint(),
-                        child: Image.asset(
-                          'src/img/+1Button.png',
-                          width: 60,
-                          height: 60,
-                        )),
+                      onPressed: () => increment1BPoint(),
+                      child: Container(
+                        padding: const EdgeInsets.all(18),
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color.fromARGB(255, 158, 158, 158),
+                        ),
+                        child: const Text(
+                          "+1",
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 26, 26, 26),
+                            fontSize: 24,
+                            fontFamily: "Conthrax",
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
                 Row(
                   children: [
                     TextButton(
-                        onPressed: () => increment3BPoints(),
-                        child: Image.asset(
-                          'src/img/+3Button.png',
-                          width: 60,
-                          height: 60,
-                        )),
+                      onPressed: () => increment3BPoints(),
+                      child: Container(
+                        padding: const EdgeInsets.all(16),
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color.fromARGB(255, 158, 158, 158),
+                        ),
+                        child: const Text(
+                          "+3",
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 26, 26, 26),
+                            fontSize: 24,
+                            fontFamily: "Conthrax",
+                          ),
+                        ),
+                      ),
+                    ),
                     TextButton(
-                        onPressed: () => increment6BPoints(),
-                        child: Image.asset(
-                          'src/img/+6Button.png',
-                          width: 60,
-                          height: 60,
-                        )),
+                      onPressed: () => increment6BPoints(),
+                      child: Container(
+                        padding: const EdgeInsets.all(16),
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color.fromARGB(255, 158, 158, 158),
+                        ),
+                        child: const Text(
+                          "+6",
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 26, 26, 26),
+                            fontSize: 24,
+                            fontFamily: "Conthrax",
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
                 Row(
                   children: [
                     TextButton(
-                        onPressed: () => less1BPoint(),
-                        child: Image.asset(
-                          'src/img/-1Button.png',
-                          width: 60,
-                          height: 60,
-                        )),
+                      onPressed: () => less1BPoint(),
+                      child: Container(
+                        padding: const EdgeInsets.all(20),
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color.fromARGB(255, 175, 127, 126),
+                        ),
+                        child: const Text(
+                          "-1",
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 26, 26, 26),
+                            fontSize: 24,
+                            fontFamily: "Conthrax",
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
                 const Spacer(flex: 2),
                 Row(
                   children: [
                     TextButton(
-                        onPressed: () {
-                          confirmFinish();
-                        },
-                        child: Image.asset(
-                          'src/img/FinishButton.png',
-                          width: 150,
-                        )),
+                      onPressed: () {
+                        confirmFinish();
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(16),
+                        width: 150,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.rectangle,
+                          borderRadius: BorderRadius.all(Radius.circular(70)),
+                          color: Color.fromARGB(255, 179, 179, 179),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            "Terminar",
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 26, 26, 26),
+                              fontSize: 14,
+                              fontFamily: "Conthrax",
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
                 const Spacer(flex: 1),

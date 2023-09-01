@@ -1,7 +1,5 @@
-// ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
-import 'myhomepage.dart';
+import '../../my_home_page.dart';
 
 class ShowAWinner extends StatefulWidget {
   const ShowAWinner({Key? key}) : super(key: key);
