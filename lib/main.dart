@@ -3,9 +3,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:no_truco/Components/intro/introduction.dart';
+import 'package:no_truco/pages/intro/introduction.dart';
 import 'package:no_truco/firebase_options.dart';
-import 'package:no_truco/my_home_page.dart';
+import 'package:no_truco/pages/counter_page/counter_page.dart.dart';
 import 'package:no_truco/themes/dark_theme.dart';
 import 'package:no_truco/themes/light_theme.dart';
 import 'package:no_truco/themes/theme.dart';
@@ -50,7 +50,7 @@ class MyAppState extends State<MyApp> {
             stream: FirebaseAuth.instance.authStateChanges(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                return const HomePage();
+                return const CounterPage();
               } else {
                 return const IntroductionScreen();
               }

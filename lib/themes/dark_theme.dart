@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
-  fontFamily: 'Conthrax',
+  fontFamily: 'Montserrat',
   colorScheme: const ColorScheme(
     brightness: Brightness.dark,
     primary: Color(0xFFFFD700),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../my_home_page.dart';
+import 'package:no_truco/pages/counter_page/counter_page.dart.dart';
 
 class ShowAWinner extends StatefulWidget {
   const ShowAWinner({Key? key}) : super(key: key);
@@ -17,94 +17,99 @@ class _ShowAWinnerState extends State<ShowAWinner> {
         padding:
             const EdgeInsets.only(top: 150, right: 40, bottom: 150, left: 40),
         child: Container(
-            decoration: BoxDecoration(
-              color: const Color(0xFF1A1A1A),
-              borderRadius: BorderRadius.circular(25),
-            ),
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "O Time",
-                      style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontSize: 32,
-                        color: Color(0xFFCCCCCC),
+          decoration: BoxDecoration(
+            color: const Color(0xFF1A1A1A),
+            borderRadius: BorderRadius.circular(25),
+          ),
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "O Time",
+                    style: TextStyle(
+                      fontFamily: 'Ubuntu',
+                      fontSize: 32,
+                      color: Color(0xFFCCCCCC),
+                    ),
+                  ),
+                ],
+              ),
+              Image.asset(
+                'assets/images/ClubsIcon.png',
+                width: 100,
+                height: 100,
+              ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Venceu a partida",
+                    style: TextStyle(
+                      fontFamily: 'Ubuntu',
+                      fontSize: 28,
+                      color: Color(0xFFCCCCCC),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Column(
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const CounterPage(),
+                            ),
+                          );
+                        },
+                        icon: Image.asset('assets/images/RestartIcon.png'),
                       ),
-                    ),
-                  ],
-                ),
-                Image.asset(
-                  'src/img/ClubsIcon.png',
-                  width: 100,
-                  height: 100,
-                ),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Venceu a partida",
-                      style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontSize: 28,
-                        color: Color(0xFFCCCCCC),
+                      const Text(
+                        "Reiniciar",
+                        style: TextStyle(
+                          fontFamily: 'CairoSBold',
+                          fontSize: 15,
+                          color: Color(0xFFB3B3B3),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Column(
-                      children: [
-                        IconButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const HomePage()),
-                              );
-                            },
-                            icon: Image.asset('src/img/RestartIcon.png')),
-                        const Text(
-                          "Reiniciar",
-                          style: TextStyle(
-                            fontFamily: 'CairoSBold',
-                            fontSize: 15,
-                            color: Color(0xFFB3B3B3),
-                          ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const CounterPage(),
+                            ),
+                          );
+                        },
+                        icon: Image.asset('assets/images/start.png'),
+                      ),
+                      const Text(
+                        "Continuar",
+                        style: TextStyle(
+                          fontFamily: 'CairoSBold',
+                          fontSize: 15,
+                          color: Color(0xFFB3B3B3),
                         ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        IconButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const HomePage()),
-                              );
-                            },
-                            icon: Image.asset('src/img/start.png')),
-                        const Text(
-                          "Continuar",
-                          style: TextStyle(
-                            fontFamily: 'CairoSBold',
-                            fontSize: 15,
-                            color: Color(0xFFB3B3B3),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
-            )),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -126,94 +131,99 @@ class _ShowBWinnerState extends State<ShowBWinner> {
         padding:
             const EdgeInsets.only(top: 150, right: 40, bottom: 150, left: 40),
         child: Container(
-            decoration: BoxDecoration(
-              color: const Color(0xFF1A1A1A),
-              borderRadius: BorderRadius.circular(25),
-            ),
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "O Time",
-                      style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontSize: 32,
-                        color: Color(0xFFCCCCCC),
+          decoration: BoxDecoration(
+            color: const Color(0xFF1A1A1A),
+            borderRadius: BorderRadius.circular(25),
+          ),
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "O Time",
+                    style: TextStyle(
+                      fontFamily: 'Ubuntu',
+                      fontSize: 32,
+                      color: Color(0xFFCCCCCC),
+                    ),
+                  ),
+                ],
+              ),
+              Image.asset(
+                'assets/images/HeartsIcon.png',
+                width: 100,
+                height: 100,
+              ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Venceu a partida",
+                    style: TextStyle(
+                      fontFamily: 'Ubuntu',
+                      fontSize: 28,
+                      color: Color(0xFFCCCCCC),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Column(
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const CounterPage(),
+                            ),
+                          );
+                        },
+                        icon: Image.asset('assets/images/RestartIcon.png'),
                       ),
-                    ),
-                  ],
-                ),
-                Image.asset(
-                  'src/img/HeartsIcon.png',
-                  width: 100,
-                  height: 100,
-                ),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Venceu a partida",
-                      style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontSize: 28,
-                        color: Color(0xFFCCCCCC),
+                      const Text(
+                        "Reiniciar",
+                        style: TextStyle(
+                          fontFamily: 'CairoSBold',
+                          fontSize: 15,
+                          color: Color(0xFFB3B3B3),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Column(
-                      children: [
-                        IconButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const HomePage()),
-                              );
-                            },
-                            icon: Image.asset('src/img/RestartIcon.png')),
-                        const Text(
-                          "Reiniciar",
-                          style: TextStyle(
-                            fontFamily: 'CairoSBold',
-                            fontSize: 15,
-                            color: Color(0xFFB3B3B3),
-                          ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const CounterPage(),
+                            ),
+                          );
+                        },
+                        icon: Image.asset('assets/images/start.png'),
+                      ),
+                      const Text(
+                        "Continuar",
+                        style: TextStyle(
+                          fontFamily: 'CairoSBold',
+                          fontSize: 15,
+                          color: Color(0xFFB3B3B3),
                         ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        IconButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const HomePage()),
-                              );
-                            },
-                            icon: Image.asset('src/img/start.png')),
-                        const Text(
-                          "Continuar",
-                          style: TextStyle(
-                            fontFamily: 'CairoSBold',
-                            fontSize: 15,
-                            color: Color(0xFFB3B3B3),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
-            )),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

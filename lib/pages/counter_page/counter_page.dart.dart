@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import 'Components/popups/show_winner.dart';
-import 'menu.dart';
-import 'var.dart';
+import '../../Components/popups/show_winner.dart';
+import '../../Components/menu/menu.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class CounterPage extends StatefulWidget {
+  const CounterPage({Key? key}) : super(key: key);
 
   @override
-  HomePageState createState() => HomePageState();
+  CounterPageState createState() => CounterPageState();
 }
 
-HomePage home = const HomePage();
+CounterPage home = const CounterPage();
 
-class HomePageState extends State<HomePage> {
+class CounterPageState extends State<CounterPage> {
+  int aPoints = 0;
+  int bPoints = 0;
   //Add points to A Team
   void increment1APoint() {
     setState(() => aPoints++);

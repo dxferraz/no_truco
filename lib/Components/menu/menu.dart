@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'config.dart';
-import 'historic.dart';
-import 'my_account.dart';
+import 'package:no_truco/pages/intro/auth_page.dart';
+import '../../pages/configurations/configurations.dart';
+import '../../pages/history/historic.dart';
+import '../../pages/my_account/my_account.dart';
 
 class Menu extends StatefulWidget {
   const Menu({Key? key}) : super(key: key);
@@ -42,7 +44,8 @@ class _MenuState extends State<Menu> {
             children: [
               TextButton(
                 style: TextButton.styleFrom(
-                  foregroundColor: const Color(0xFFCCCCCC), textStyle:
+                  foregroundColor: const Color(0xFFCCCCCC),
+                  textStyle:
                       const TextStyle(fontFamily: 'CairoSBold', fontSize: 24),
                 ),
                 onPressed: () {
@@ -63,35 +66,21 @@ class _MenuState extends State<Menu> {
           Row(
             children: [
               TextButton(
-                  style: TextButton.styleFrom(
-                    foregroundColor: const Color(0xFFCCCCCC), textStyle:
-                        const TextStyle(fontFamily: 'CairoSBold', fontSize: 24),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const MyAccount()),
-                    );
-                  },
-                  child: const Text("Minha Conta")),
-            ],
-          ),
-          const Spacer(flex: 1),
-          Row(
-            children: [
-              TextButton(
-                  style: TextButton.styleFrom(
-                    foregroundColor: const Color(0xFFCCCCCC), textStyle:
-                        const TextStyle(fontFamily: 'CairoSBold', fontSize: 24),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Config()),
-                    );
-                  },
-                  child: const Text("Configurações"))
+                style: TextButton.styleFrom(
+                  foregroundColor: const Color(0xFFCCCCCC),
+                  textStyle:
+                      const TextStyle(fontFamily: 'CairoSBold', fontSize: 24),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const MyAccount(),
+                    ),
+                  );
+                },
+                child: const Text("Minha Conta"),
+              ),
             ],
           ),
           const Spacer(flex: 1),
@@ -99,16 +88,41 @@ class _MenuState extends State<Menu> {
             children: [
               TextButton(
                 style: TextButton.styleFrom(
-                  foregroundColor: const Color(0xFFCCCCCC), textStyle: const TextStyle(
+                  foregroundColor: const Color(0xFFCCCCCC),
+                  textStyle:
+                      const TextStyle(fontFamily: 'CairoSBold', fontSize: 24),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Config()),
+                  );
+                },
+                child: const Text("Configurações"),
+              )
+            ],
+          ),
+          const Spacer(flex: 1),
+          Row(
+            children: [
+              TextButton(
+                style: TextButton.styleFrom(
+                  foregroundColor: const Color(0xFFCCCCCC),
+                  textStyle: const TextStyle(
                     fontFamily: 'CairoSBold',
                     fontSize: 24,
                   ),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Historic()),
-                  );
+                  setState(() {
+                    FirebaseAuth.instance.signOut();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AuthPage(),
+                      ),
+                    );
+                  });
                 },
                 child: const Text("Desconectar"),
               )
@@ -120,7 +134,8 @@ class _MenuState extends State<Menu> {
             children: [
               TextButton(
                 style: TextButton.styleFrom(
-                  foregroundColor: const Color(0xFFCCCCCC), textStyle:
+                  foregroundColor: const Color(0xFFCCCCCC),
+                  textStyle:
                       const TextStyle(fontFamily: 'Conthrax', fontSize: 24),
                 ),
                 onPressed: () {

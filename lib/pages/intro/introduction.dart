@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:no_truco/Components/changeThemeButton/change_theme_button.dart';
-import 'package:no_truco/Components/intro/login_page.dart';
-import 'package:no_truco/my_home_page.dart';
+import 'package:no_truco/pages/intro/auth_page.dart';
+import 'package:no_truco/pages/counter_page/counter_page.dart.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class IntroductionScreen extends StatefulWidget {
@@ -116,7 +116,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
               subtitle:
                   "Nosso aplicativo combina a emoção do jogo com a praticidade da contagem automática de pontos. Enfrente seus amigos ou desafie a si mesmo enquanto o NoTruco mantém o placar.",
             ),
-            const LoginPage(),
+            const AuthPage(),
           ],
         ),
       ),
@@ -178,7 +178,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const HomePage(),
+                              builder: (context) => const CounterPage(),
                             ),
                           );
                         },

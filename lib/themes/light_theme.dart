@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 ThemeData lightTheme = ThemeData(
   brightness: Brightness.light,
-  fontFamily: 'Conthrax',
+  fontFamily: 'Montserrat',
   textTheme: const TextTheme(
     bodyLarge: TextStyle(
       fontFamily: 'Montserrat',
