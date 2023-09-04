@@ -14,8 +14,7 @@ class _ShowAWinnerState extends State<ShowAWinner> {
     return Scaffold(
       backgroundColor: Colors.black45,
       body: Padding(
-        padding:
-            const EdgeInsets.only(top: 150, right: 40, bottom: 150, left: 40),
+        padding: const EdgeInsets.symmetric(vertical: 150, horizontal: 40),
         child: Container(
           decoration: BoxDecoration(
             color: const Color(0xFF1A1A1A),

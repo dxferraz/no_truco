@@ -16,7 +16,10 @@ class AuthServices {
       await FirebaseAuth.instance.currentUser!.updateEmail(email);
       await FirebaseAuth.instance.currentUser!.updateDisplayName(fullName);
       await FirestoreServices.saveUser(
-          fullName, email, userCredential.user!.uid);
+        fullName,
+        email,
+        userCredential.user!.uid,
+      );
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Registration Successful')),
       );
@@ -69,5 +72,10 @@ class AuthServices {
       idToken: googleAuth.idToken,
     );
     return await FirebaseAuth.instance.signInWithCredential(credential);
+  }
+
+  void signOutUser() async {
+    await FirebaseAuth.instance.signOut();
+    // Redirecione para a página de login ou faça qualquer outra ação necessária após a desautenticação.
   }
 }

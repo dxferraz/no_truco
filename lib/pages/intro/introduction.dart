@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:no_truco/Components/changeThemeButton/change_theme_button.dart';
 import 'package:no_truco/pages/intro/auth_page.dart';
 import 'package:no_truco/pages/counter_page/counter_page.dart.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -78,13 +77,13 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
     var backgroundColor = Theme.of(context).colorScheme.background;
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: backgroundColor,
-        elevation: 0,
-        actions: const [
-          ChangeThemeButton(),
-        ],
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: backgroundColor,
+      //   elevation: 0,
+      //   actions: const [
+      //     ChangeThemeButton(),
+      //   ],
+      // ),
       body: Container(
         padding: const EdgeInsets.only(bottom: 80),
         child: PageView(

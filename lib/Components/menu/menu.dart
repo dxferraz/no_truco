@@ -1,8 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:no_truco/pages/intro/auth_page.dart';
+import 'package:no_truco/services/functions/auth_functions.dart';
 import '../../pages/configurations/configurations.dart';
-import '../../pages/history/historic.dart';
 import '../../pages/my_account/my_account.dart';
 
 class Menu extends StatefulWidget {
@@ -16,144 +15,119 @@ class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(right: 100),
-      decoration: const BoxDecoration(
-        color: Color(0xFF1A1A1A),
-        borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30), bottomLeft: Radius.circular(30)),
+      width: MediaQuery.of(context).size.width - 50,
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.background,
       ),
-      padding: const EdgeInsets.only(top: 40, left: 20, right: 20, bottom: 40),
       //color: Color(0xFF1A1A1A),
-      child: Column(
-        children: [
-          const Spacer(flex: 1),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Menu",
-                style: TextStyle(
-                    color: Color(0xFFCCCCCC),
-                    fontSize: 24,
-                    fontFamily: 'Conthrax'),
-              ),
-            ],
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.background,
+          elevation: 0,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.close,
+              size: 30,
+              color: Theme.of(context).colorScheme.onBackground,
+            ),
           ),
-          const Spacer(flex: 4),
-          Row(
-            children: [
-              TextButton(
-                style: TextButton.styleFrom(
-                  foregroundColor: const Color(0xFFCCCCCC),
-                  textStyle:
-                      const TextStyle(fontFamily: 'CairoSBold', fontSize: 24),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Historic(),
-                    ),
-                  );
-                },
-                child: const Text(
-                  "Histórico",
-                ),
-              )
-            ],
+          centerTitle: true,
+          title: Text(
+            "Menu",
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.onBackground,
+              fontSize: 24,
+              fontFamily: 'Conthrax',
+            ),
           ),
-          const Spacer(flex: 1),
-          Row(
+        ),
+        body: Container(
+          color: Theme.of(context).colorScheme.background,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextButton(
-                style: TextButton.styleFrom(
-                  foregroundColor: const Color(0xFFCCCCCC),
-                  textStyle:
-                      const TextStyle(fontFamily: 'CairoSBold', fontSize: 24),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const MyAccount(),
-                    ),
-                  );
-                },
-                child: const Text("Minha Conta"),
-              ),
-            ],
-          ),
-          const Spacer(flex: 1),
-          Row(
-            children: [
-              TextButton(
-                style: TextButton.styleFrom(
-                  foregroundColor: const Color(0xFFCCCCCC),
-                  textStyle:
-                      const TextStyle(fontFamily: 'CairoSBold', fontSize: 24),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Config()),
-                  );
-                },
-                child: const Text("Configurações"),
-              )
-            ],
-          ),
-          const Spacer(flex: 1),
-          Row(
-            children: [
-              TextButton(
-                style: TextButton.styleFrom(
-                  foregroundColor: const Color(0xFFCCCCCC),
-                  textStyle: const TextStyle(
-                    fontFamily: 'CairoSBold',
-                    fontSize: 24,
-                  ),
-                ),
-                onPressed: () {
-                  setState(() {
-                    FirebaseAuth.instance.signOut();
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const AuthPage(),
+              Row(
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MyAccount(),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      "Minha Conta",
+                      style: TextStyle(
+                        fontFamily: 'CairoSBold',
+                        fontSize: 24,
                       ),
-                    );
-                  });
-                },
-                child: const Text("Desconectar"),
-              )
-            ],
-          ),
-          const Spacer(flex: 4),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextButton(
-                style: TextButton.styleFrom(
-                  foregroundColor: const Color(0xFFCCCCCC),
-                  textStyle:
-                      const TextStyle(fontFamily: 'Conthrax', fontSize: 24),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Historic()),
-                  );
-                },
-                child: const Text(
-                  "Dxferraz",
-                  style: TextStyle(
-                    fontSize: 20,
+                    ),
                   ),
-                ),
-              )
+                ],
+              ),
+              Row(
+                children: [
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      foregroundColor: const Color(0xFFCCCCCC),
+                      textStyle: const TextStyle(
+                        fontFamily: 'CairoSBold',
+                        fontSize: 24,
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Config()),
+                      );
+                    },
+                    child: const Text("Configurações"),
+                  )
+                ],
+              ),
+              Row(
+                children: [
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      foregroundColor: const Color(0xFFCCCCCC),
+                      textStyle: const TextStyle(
+                        fontFamily: 'CairoSBold',
+                        fontSize: 24,
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        AuthServices().signOutUser();
+                      });
+                    },
+                    child: const Text("Desconectar"),
+                  )
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "${FirebaseAuth.instance.currentUser?.email}",
+                    style: TextStyle(
+                      fontFamily: "Montserrat",
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Theme.of(context).colorScheme.onBackground,
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
-        ],
+        ),
       ),
     );
   }
