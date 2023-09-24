@@ -1,3 +1,0 @@
-saveMatchToHistory(context) {
-  
-}

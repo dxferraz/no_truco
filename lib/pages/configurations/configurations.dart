@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:no_truco/Components/menu/menu_widgets.dart';
-import 'package:no_truco/themes/theme.dart';
-import 'package:provider/provider.dart';
 
 class Config extends StatelessWidget {
   const Config({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -36,26 +32,9 @@ class Config extends StatelessWidget {
             left: 20,
             bottom: 30,
           ),
-          child: Column(
+          child: const Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  configSwitch(
-                    icon: Icon(
-                      Icons.dark_mode,
-                      color: Theme.of(context).colorScheme.onBackground,
-                    ),
-                    title: "Modo escuro",
-                    value: themeProvider.isDarkMode,
-                    onChanged: (value) {
-                      final provider =
-                          Provider.of<ThemeProvider>(context, listen: false);
-                      provider.toggleTheme(value);
-                    },
-                  )
-                ],
-              )
+              
             ],
           ),
         ),

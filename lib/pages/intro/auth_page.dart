@@ -31,22 +31,13 @@ class _AuthPageState extends State<AuthPage> {
             children: [
               Text(
                 login ? "Login" : "Cadastro",
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.onBackground,
-                  fontFamily: 'Conthrax',
-                  fontSize: 24,
-                ),
+                style: Theme.of(context).textTheme.displayLarge,
               ),
               const SizedBox(height: 20),
               Text(
                 "Cadastre-se ou faça o login na sua conta para sincronizar o histórico das partidas.",
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.onBackground,
-                  fontFamily: 'Montserrat',
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
               const SizedBox(height: 30),
               Form(
@@ -58,21 +49,20 @@ class _AuthPageState extends State<AuthPage> {
                         : TextFormField(
                             key: const ValueKey('fullName'),
                             decoration: InputDecoration(
-                              hintText: 'Nome completo',
-                              hintStyle: TextStyle(
-                                color:
-                                    Theme.of(context).colorScheme.onBackground,
-                                fontFamily: 'Montserrat',
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
+                              border: const OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color:
+                                      Theme.of(context).colorScheme.onPrimary,
+                                ),
                               ),
+                              hintText: 'Nome completo',
+                              hintStyle: Theme.of(context).textTheme.bodySmall,
                             ),
-                            style: TextStyle(
-                              color: Theme.of(context).colorScheme.onBackground,
-                              fontFamily: 'Montserrat',
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                            ),
+                            textCapitalization: TextCapitalization.words,
+                            cursorColor:
+                                Theme.of(context).colorScheme.onPrimary,
+                            style: Theme.of(context).textTheme.bodySmall,
                             validator: (value) {
                               if (value!.isEmpty) {
                                 return 'Insira um nome';
@@ -86,23 +76,21 @@ class _AuthPageState extends State<AuthPage> {
                               });
                             },
                           ),
+                    const SizedBox(height: 20),
                     TextFormField(
                       key: const ValueKey('email'),
                       decoration: InputDecoration(
-                        hintText: 'Email',
-                        hintStyle: TextStyle(
-                          color: Theme.of(context).colorScheme.onBackground,
-                          fontFamily: 'Montserrat',
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
+                        border: const OutlineInputBorder(),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Theme.of(context).colorScheme.onPrimary,
+                          ),
                         ),
+                        hintText: 'Email',
+                        hintStyle: Theme.of(context).textTheme.bodySmall,
                       ),
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.onBackground,
-                        fontFamily: 'Montserrat',
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      cursorColor: Theme.of(context).colorScheme.onPrimary,
+                      style: Theme.of(context).textTheme.bodySmall,
                       validator: (value) {
                         if (value!.isEmpty || !value.contains('@')) {
                           return 'Insira um email válido';
@@ -112,7 +100,7 @@ class _AuthPageState extends State<AuthPage> {
                       },
                       onSaved: (value) {
                         setState(() {
-                          email = value!;
+                          email = value.toString();
                         });
                       },
                     ),
@@ -121,22 +109,19 @@ class _AuthPageState extends State<AuthPage> {
                       key: const ValueKey('password'),
                       obscureText: true,
                       decoration: InputDecoration(
-                        hintText: 'Senha',
-                        hintStyle: TextStyle(
-                          color: Theme.of(context).colorScheme.onBackground,
-                          fontFamily: 'Montserrat',
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
+                        border: const OutlineInputBorder(),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Theme.of(context).colorScheme.onPrimary,
+                          ),
                         ),
+                        hintText: 'Senha',
+                        hintStyle: Theme.of(context).textTheme.bodySmall,
                       ),
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.onBackground,
-                        fontFamily: 'Montserrat',
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      cursorColor: Theme.of(context).colorScheme.onPrimary,
+                      style: Theme.of(context).textTheme.bodySmall,
                       validator: (value) {
-                        if (value!.length < 6) {
+                        if (value!.length < 6 || value.isEmpty) {
                           return 'A senha deve conter 6 ou mais caracteres';
                         } else {
                           return null;
@@ -169,8 +154,10 @@ class _AuthPageState extends State<AuthPage> {
                       },
                       style: ElevatedButton.styleFrom(
                         elevation: 0,
-                        padding:
-                            const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 15,
+                          horizontal: 20,
+                        ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),

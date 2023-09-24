@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:no_truco/pages/intro/auth_page.dart';
-import 'package:no_truco/pages/counter_page/counter_page.dart.dart';
+import 'package:no_truco/features/counter/presenter/counter_page.dart.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class IntroductionScreen extends StatefulWidget {

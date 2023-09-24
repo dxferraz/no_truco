@@ -6,6 +6,7 @@ import 'package:no_truco/services/functions/firebase_functions.dart';
 class AuthServices {
   static signupUser(String fullName, String email, String password,
       BuildContext context) async {
+    debugPrint("Signing up");
     try {
       UserCredential userCredential =
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -21,16 +22,29 @@ class AuthServices {
         userCredential.user!.uid,
       );
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Registration Successful')),
+        const SnackBar(
+            content: Text(
+          //TODO: Translate this
+
+          'Registration Successful',
+        )),
       );
+      debugPrint("Signed up");
     } on FirebaseAuthException catch (e) {
+      debugPrint("Error: " + e.code);
       if (e.code == 'weak-password') {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text('The password provided is too weak.'),
+          content: Text(
+            //TODO: Translate this
+            'The password provided is too weak.',
+          ),
         ));
       } else if (e.code == 'email-already-in-use') {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text('The account already exists for that email.'),
+          content: Text(
+            //TODO: Translate this
+            'The account already exists for that email.',
+          ),
         ));
       }
     } catch (e) {
@@ -43,19 +57,40 @@ class AuthServices {
     String password,
     BuildContext context,
   ) async {
+    debugPrint("Signing in");
     try {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
 
-      ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text('You are logged in')));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            //TODO: Translate this
+            'You are logged in',
+          ),
+        ),
+      );
+      debugPrint("Signed in");
     } on FirebaseAuthException catch (e) {
+      debugPrint("Error: " + e.code);
       if (e.code == 'user-not-found') {
         ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('No user found for that email.')));
+          const SnackBar(
+            content: Text(
+              //TODO: Translate this
+              'No user found for that email.',
+            ),
+          ),
+        );
       } else if (e.code == 'wrong-password') {
         ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Wrong password provided.')));
+          const SnackBar(
+            content: Text(
+              //TODO: Translate this
+              'Wrong password provided.',
+            ),
+          ),
+        );
       }
     }
   }

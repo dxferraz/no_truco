@@ -5,18 +5,40 @@ Widget configSwitch({
   required String title,
   required bool value,
   required Function(bool) onChanged,
+  required context,
 }) {
-  return SwitchListTile.adaptive(
-    value: value,
-    onChanged: onChanged,
-    title: Row(
-      children: [
-        icon,
-        const SizedBox(width: 10),
-        Text(
-          title,
+  return SizedBox(
+    width: double.infinity,
+    child: TextButton(
+      onPressed: () {},
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              Text(
+                title,
+                style: TextStyle(
+                  fontFamily: 'Montserrat',
+                  fontSize: 22,
+                  fontWeight: FontWeight.w600,
+                  color: Theme.of(context).colorScheme.onBackground,
+                ),
+              ),
+              const SizedBox(width: 10),
+              const Icon(Icons.dark_mode),
+            ],
+          ),
+          
+        ],
+      ),
+      style: TextButton.styleFrom(
+        foregroundColor: const Color(0xFFCCCCCC),
+        textStyle: const TextStyle(
+          fontFamily: 'Montserrat',
+          fontSize: 24,
         ),
-      ],
+      ),
     ),
   );
 }
@@ -24,12 +46,30 @@ Widget configSwitch({
 Widget menuTile({
   required String title,
   required Function() onPressed,
+  required context,
 }) {
-  return TextButton(
-    onPressed: onPressed,
-    child: const Text(
-      "Histórico",
-      style: TextStyle(),
-    ),
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.start,
+    children: [
+      TextButton(
+        onPressed: onPressed,
+        child: Text(
+          title,
+          style: TextStyle(
+            fontFamily: 'Montserrat',
+            fontSize: 22,
+            fontWeight: FontWeight.w600,
+            color: Theme.of(context).colorScheme.onBackground,
+          ),
+        ),
+        style: TextButton.styleFrom(
+          foregroundColor: const Color(0xFFCCCCCC),
+          textStyle: const TextStyle(
+            fontFamily: 'Montserrat',
+            fontSize: 24,
+          ),
+        ),
+      ),
+    ],
   );
 }

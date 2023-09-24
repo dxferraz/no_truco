@@ -5,24 +5,16 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:no_truco/pages/intro/introduction.dart';
 import 'package:no_truco/firebase_options.dart';
-import 'package:no_truco/pages/counter_page/counter_page.dart.dart';
+import 'package:no_truco/features/counter/presenter/counter_page.dart.dart';
 import 'package:no_truco/themes/dark_theme.dart';
 import 'package:no_truco/themes/light_theme.dart';
-import 'package:no_truco/themes/theme.dart';
+import 'package:no_truco/themes/theme_model.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {
   Animate.restartOnHotReload = true;
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      systemNavigationBarColor: Colors.transparent,
-      statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.light,
-      statusBarBrightness: Brightness.dark,
-    ),
-  );
   runApp(const MyApp());
 }
 
@@ -37,27 +29,43 @@ class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
-      builder: (context, _) {
-        final themeProvider = Provider.of<ThemeProvider>(context);
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'NoTruco',
-          theme: lightTheme,
-          darkTheme: darkTheme,
-          themeMode: themeProvider.themeMode,
-          home: StreamBuilder(
-            stream: FirebaseAuth.instance.authStateChanges(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return const CounterPage();
-              } else {
-                return const IntroductionScreen();
-              }
-            },
-          ),
-        );
-      },
+      create: (_) => ThemeModel(),
+      child: Consumer(
+        builder: (context, ThemeModel themeNotifier, child) {
+          return AnnotatedRegion<SystemUiOverlayStyle>(
+            value: themeNotifier.isDark
+                ? const SystemUiOverlayStyle(
+                    statusBarColor: Colors.transparent,
+                    statusBarIconBrightness: Brightness.light,
+                    statusBarBrightness: Brightness.light,
+                    systemNavigationBarColor: Colors.transparent,
+                    systemNavigationBarIconBrightness: Brightness.light,
+                  )
+                : const SystemUiOverlayStyle(
+                    statusBarColor: Colors.transparent,
+                    statusBarIconBrightness: Brightness.dark,
+                    statusBarBrightness: Brightness.dark,
+                    systemNavigationBarColor: Colors.transparent,
+                    systemNavigationBarIconBrightness: Brightness.dark,
+                  ),
+            child: MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'NoTruco',
+              theme: themeNotifier.isDark ? darkTheme : lightTheme,
+              home: StreamBuilder(
+                stream: FirebaseAuth.instance.authStateChanges(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return const CounterPage();
+                  } else {
+                    return const IntroductionScreen();
+                  }
+                },
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }

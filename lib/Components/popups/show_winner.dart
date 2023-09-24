@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:no_truco/pages/counter_page/counter_page.dart.dart';
+import 'package:no_truco/features/counter/presenter/counter_page.dart.dart';
 
 class ShowAWinner extends StatefulWidget {
   const ShowAWinner({Key? key}) : super(key: key);

@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:no_truco/services/functions/auth_functions.dart';
+import 'package:no_truco/Components/menu/menu_widgets.dart';
+import 'package:no_truco/pages/intro/introduction.dart';
 import '../../pages/configurations/configurations.dart';
 import '../../pages/my_account/my_account.dart';
 
@@ -12,6 +13,11 @@ class Menu extends StatefulWidget {
 }
 
 class _MenuState extends State<Menu> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -48,12 +54,17 @@ class _MenuState extends State<Menu> {
         body: Container(
           color: Theme.of(context).colorScheme.background,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
+              const Spacer(flex: 2),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TextButton(
+                  const SizedBox(height: 30),
+                  menuTile(
+                    title: 'Minha Conta',
+                    context: context,
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -62,60 +73,31 @@ class _MenuState extends State<Menu> {
                         ),
                       );
                     },
-                    child: const Text(
-                      "Minha Conta",
-                      style: TextStyle(
-                        fontFamily: 'CairoSBold',
-                        fontSize: 24,
-                      ),
-                    ),
                   ),
-                ],
-              ),
-              Row(
-                children: [
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      foregroundColor: const Color(0xFFCCCCCC),
-                      textStyle: const TextStyle(
-                        fontFamily: 'CairoSBold',
-                        fontSize: 24,
-                      ),
-                    ),
+                  const SizedBox(height: 30),
+                  menuTile(
+                    title: 'Configurações',
+                    context: context,
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const Config()),
+                        MaterialPageRoute(
+                          builder: (context) => const Config(),
+                        ),
                       );
                     },
-                    child: const Text("Configurações"),
-                  )
+                  ),
+                  const SizedBox(height: 30),
                 ],
               ),
-              Row(
-                children: [
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      foregroundColor: const Color(0xFFCCCCCC),
-                      textStyle: const TextStyle(
-                        fontFamily: 'CairoSBold',
-                        fontSize: 24,
-                      ),
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        AuthServices().signOutUser();
-                      });
-                    },
-                    child: const Text("Desconectar"),
-                  )
-                ],
-              ),
+              const Spacer(flex: 3),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "${FirebaseAuth.instance.currentUser?.email}",
+                    FirebaseAuth.instance.currentUser?.email == null
+                        ? ""
+                        : "${FirebaseAuth.instance.currentUser?.email}",
                     style: TextStyle(
                       fontFamily: "Montserrat",
                       fontSize: 14,
@@ -125,6 +107,48 @@ class _MenuState extends State<Menu> {
                   ),
                 ],
               ),
+              const SizedBox(height: 5),
+              FirebaseAuth.instance.currentUser?.email == null
+                  ? Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Login",
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const IntroductionScreen(),
+                              ),
+                            );
+                          },
+                          icon: Icon(
+                            Icons.login,
+                            color: Theme.of(context).colorScheme.onBackground,
+                            size: 20,
+                          ),
+                        ),
+                      ],
+                    )
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            FirebaseAuth.instance.signOut();
+                          },
+                          icon: Icon(
+                            Icons.logout,
+                            color: Theme.of(context).colorScheme.onBackground,
+                            size: 20,
+                          ),
+                        ),
+                      ],
+                    ),
             ],
           ),
         ),
