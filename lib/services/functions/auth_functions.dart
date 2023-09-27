@@ -25,7 +25,6 @@ class AuthServices {
         const SnackBar(
             content: Text(
           //TODO: Translate this
-
           'Registration Successful',
         )),
       );

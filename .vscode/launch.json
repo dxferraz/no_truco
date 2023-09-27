@@ -8,6 +8,12 @@
             "name": "NoTruco",
             "request": "launch",
             "type": "dart"
+        },
+        {
+            "command": "fvm flutter run",
+            "name": "Run",
+            "request": "launch",
+            "type": "node-terminal"
         }
     ]
 }
