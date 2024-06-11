@@ -6,9 +6,9 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:no_truco/pages/intro/introduction.dart';
 import 'package:no_truco/firebase_options.dart';
 import 'package:no_truco/features/counter/presenter/counter_page.dart.dart';
-import 'package:no_truco/themes/dark_theme.dart';
-import 'package:no_truco/themes/light_theme.dart';
-import 'package:no_truco/themes/theme_model.dart';
+import 'package:no_truco/core/themes/dark_theme.dart';
+import 'package:no_truco/core/themes/light_theme.dart';
+import 'package:no_truco/core/themes/theme_model.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {

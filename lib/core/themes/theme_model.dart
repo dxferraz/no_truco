@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:no_truco/themes/theme_preferences.dart';
+import 'package:no_truco/core/themes/theme_preferences.dart';
 
 class ThemeModel extends ChangeNotifier {
   bool _isDark = false;

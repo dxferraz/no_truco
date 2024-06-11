@@ -31,7 +31,7 @@
 	<key>CFBundleName</key>
 	<string>NoTruco</string>
 	<key>CFBundlePackageType</key>
-	<string>APPL</string>
+	<string>NoTruco</string>
 	<key>CFBundleShortVersionString</key>
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>

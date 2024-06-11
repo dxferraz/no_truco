@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:no_truco/Components/popups/rename_team.dart';
 import 'package:no_truco/features/counter/domain/counter_functions.dart';
-import 'package:no_truco/themes/theme_model.dart';
+import 'package:no_truco/core/themes/theme_model.dart';
 import 'package:provider/provider.dart';
 import '../../../Components/menu/menu.dart';
 
