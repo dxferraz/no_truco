@@ -19,8 +19,6 @@ ThemeData darkTheme = ThemeData(
     onSecondary: onPrimary,
     error: error,
     onError: onPrimary,
-    background: background,
-    onBackground: onBackground,
     surface: surface,
     onSurface: onPrimary,
   ),

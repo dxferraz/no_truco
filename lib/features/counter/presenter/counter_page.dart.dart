@@ -29,9 +29,9 @@ class CounterPageState extends State<CounterPage> {
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ThemeModel themeNotifier, child) {
-        bool _iconBool = themeNotifier.isDark;
+        bool iconBool = themeNotifier.isDark;
         return Scaffold(
-          backgroundColor: Theme.of(context).colorScheme.background,
+          backgroundColor: Theme.of(context).colorScheme.surface,
           key: _scaffoldKey,
           drawer: const ClipRRect(
             borderRadius: BorderRadius.only(
@@ -44,14 +44,14 @@ class CounterPageState extends State<CounterPage> {
             leading: IconButton(
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.all(0),
-                backgroundColor: Theme.of(context).colorScheme.background,
+                backgroundColor: Theme.of(context).colorScheme.surface,
               ),
               onPressed: () {
                 _scaffoldKey.currentState!.openDrawer();
               },
               icon: Icon(
                 Icons.menu,
-                color: Theme.of(context).colorScheme.onBackground,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
             backgroundColor: Colors.transparent,
@@ -59,7 +59,7 @@ class CounterPageState extends State<CounterPage> {
             title: Text(
               "NoTruco",
               style: TextStyle(
-                color: Theme.of(context).colorScheme.onBackground,
+                color: Theme.of(context).colorScheme.onSurface,
                 fontSize: 20,
                 fontFamily: 'Conthrax',
               ),
@@ -71,11 +71,11 @@ class CounterPageState extends State<CounterPage> {
                   themeNotifier.isDark
                       ? themeNotifier.isDark = false
                       : themeNotifier.isDark = true;
-                  _iconBool = !_iconBool;
+                  iconBool = !iconBool;
                 },
                 icon: Icon(
-                  _iconBool ? _iconLight : _iconDark,
-                  color: Theme.of(context).colorScheme.onBackground,
+                  iconBool ? _iconLight : _iconDark,
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
               ),
             ],
@@ -98,7 +98,7 @@ class CounterPageState extends State<CounterPage> {
           body: Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.background,
+              color: Theme.of(context).colorScheme.surface,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -126,7 +126,7 @@ class CounterPageState extends State<CounterPage> {
                         fontSize: 16,
                         color: Theme.of(context)
                             .colorScheme
-                            .onBackground
+                            .onSurface
                             .withOpacity(0.8),
                       ),
                     ),
@@ -328,9 +328,9 @@ class CounterPageState extends State<CounterPage> {
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         alignment: Alignment.center,
                         foregroundColor:
-                            Theme.of(context).colorScheme.onBackground,
+                            Theme.of(context).colorScheme.onSurface,
                         backgroundColor:
-                            Theme.of(context).colorScheme.background,
+                            Theme.of(context).colorScheme.surface,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50),
                         ),
@@ -343,7 +343,7 @@ class CounterPageState extends State<CounterPage> {
                           fontSize: 18,
                           color: Theme.of(context)
                               .colorScheme
-                              .onBackground
+                              .onSurface
                               .withOpacity(0.8),
                         ),
                       ),

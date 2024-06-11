@@ -14,37 +14,37 @@ class AuthServices {
         password: password,
       );
 
-      await FirebaseAuth.instance.currentUser!.updateEmail(email);
+      await FirebaseAuth.instance.currentUser!.verifyBeforeUpdateEmail(email);
       await FirebaseAuth.instance.currentUser!.updateDisplayName(fullName);
       await FirestoreServices.saveUser(
         fullName,
         email,
         userCredential.user!.uid,
       );
-      ScaffoldMessenger.of(context).showSnackBar(
+      context.mounted ? ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
             content: Text(
           //TODO: Translate this
           'Registration Successful',
         )),
-      );
+      ) : null;
       debugPrint("Signed up");
     } on FirebaseAuthException catch (e) {
-      debugPrint("Error: " + e.code);
+      debugPrint("Error: ${e.code}");
       if (e.code == 'weak-password') {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        context.mounted ? ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text(
             //TODO: Translate this
             'The password provided is too weak.',
           ),
-        ));
+        )) : null;
       } else if (e.code == 'email-already-in-use') {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        context.mounted ? ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text(
             //TODO: Translate this
             'The account already exists for that email.',
           ),
-        ));
+        )) : null;
       }
     } catch (e) {
       debugPrint(e.toString());
@@ -61,35 +61,35 @@ class AuthServices {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
 
-      ScaffoldMessenger.of(context).showSnackBar(
+      context.mounted ? ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
             //TODO: Translate this
             'You are logged in',
           ),
         ),
-      );
+      ) : null;
       debugPrint("Signed in");
     } on FirebaseAuthException catch (e) {
-      debugPrint("Error: " + e.code);
+      debugPrint("Error: ${e.code}");
       if (e.code == 'user-not-found') {
-        ScaffoldMessenger.of(context).showSnackBar(
+        context.mounted ? ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text(
               //TODO: Translate this
               'No user found for that email.',
             ),
           ),
-        );
+        ) : null;
       } else if (e.code == 'wrong-password') {
-        ScaffoldMessenger.of(context).showSnackBar(
+        context.mounted ? ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text(
               //TODO: Translate this
               'Wrong password provided.',
             ),
           ),
-        );
+        ) : null;
       }
     }
   }

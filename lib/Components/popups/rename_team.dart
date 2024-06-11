@@ -11,7 +11,7 @@ class _RenameTeamPopUpState extends State<RenameTeamPopUp> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       title: Text(
         "Renomear time",
         style: TextStyle(
@@ -33,14 +33,14 @@ class _RenameTeamPopUpState extends State<RenameTeamPopUp> {
               border: const OutlineInputBorder(),
               hintText: 'Time A',
               hintStyle: TextStyle(
-                color: Theme.of(context).colorScheme.onBackground,
+                color: Theme.of(context).colorScheme.onSurface,
                 fontFamily: 'Montserrat',
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
               ),
             ),
             style: TextStyle(
-              color: Theme.of(context).colorScheme.onBackground,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
         ],

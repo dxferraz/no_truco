@@ -21,7 +21,7 @@ class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Theme.of(context).colorScheme.background,
+      color: Theme.of(context).colorScheme.surface,
       alignment: Alignment.center,
       child: SingleChildScrollView(
         child: Container(
@@ -184,7 +184,7 @@ class _AuthPageState extends State<AuthPage> {
                             ? "Ainda não tem conta? Cadastrar-se aqui"
                             : "Já tem conta? Faça o login aqui",
                         style: TextStyle(
-                          color: Theme.of(context).colorScheme.onBackground,
+                          color: Theme.of(context).colorScheme.onSurface,
                           fontFamily: 'Montserrat',
                           fontSize: 14,
                           fontWeight: FontWeight.w500,

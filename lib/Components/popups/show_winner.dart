@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:no_truco/features/counter/presenter/counter_page.dart.dart';
 
-class ShowAWinner extends StatefulWidget {
+class ShowAWinner extends StatelessWidget {
   const ShowAWinner({Key? key}) : super(key: key);
 
-  @override
-  _ShowAWinnerState createState() => _ShowAWinnerState();
-}
-
-class _ShowAWinnerState extends State<ShowAWinner> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,14 +109,9 @@ class _ShowAWinnerState extends State<ShowAWinner> {
   }
 }
 
-class ShowBWinner extends StatefulWidget {
+class ShowBWinner extends StatelessWidget {
   const ShowBWinner({Key? key}) : super(key: key);
 
-  @override
-  _ShowBWinnerState createState() => _ShowBWinnerState();
-}
-
-class _ShowBWinnerState extends State<ShowBWinner> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

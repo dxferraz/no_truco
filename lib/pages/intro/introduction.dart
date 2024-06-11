@@ -55,7 +55,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                 subtitle,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Theme.of(context).colorScheme.onBackground,
+                  color: Theme.of(context).colorScheme.onSurface,
                   fontFamily: "Montserrat",
                   fontWeight: FontWeight.w500,
                   fontSize: 16,
@@ -74,7 +74,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var backgroundColor = Theme.of(context).colorScheme.background;
+    var backgroundColor = Theme.of(context).colorScheme.surface;
 
     return Scaffold(
       // appBar: AppBar(
@@ -120,7 +120,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
         ),
       ),
       bottomSheet: Container(
-        color: Theme.of(context).colorScheme.background,
+        color: Theme.of(context).colorScheme.surface,
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
         height: 80,
         child: Row(
@@ -146,7 +146,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.w500,
                             fontSize: 16,
-                            color: Theme.of(context).colorScheme.onBackground,
+                            color: Theme.of(context).colorScheme.onSurface,
                           ),
                         ),
                       ),
@@ -187,7 +187,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.w500,
                             fontSize: 16,
-                            color: Theme.of(context).colorScheme.onBackground,
+                            color: Theme.of(context).colorScheme.onSurface,
                           ),
                         ),
                       ),
@@ -212,7 +212,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.w500,
                             fontSize: 16,
-                            color: Theme.of(context).colorScheme.onBackground,
+                            color: Theme.of(context).colorScheme.onSurface,
                           ),
                         ),
                       ),

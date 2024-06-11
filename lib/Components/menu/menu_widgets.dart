@@ -11,6 +11,13 @@ Widget configSwitch({
     width: double.infinity,
     child: TextButton(
       onPressed: () {},
+      style: TextButton.styleFrom(
+        foregroundColor: const Color(0xFFCCCCCC),
+        textStyle: const TextStyle(
+          fontFamily: 'Montserrat',
+          fontSize: 24,
+        ),
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -22,22 +29,14 @@ Widget configSwitch({
                   fontFamily: 'Montserrat',
                   fontSize: 22,
                   fontWeight: FontWeight.w600,
-                  color: Theme.of(context).colorScheme.onBackground,
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
               ),
               const SizedBox(width: 10),
               const Icon(Icons.dark_mode),
             ],
           ),
-          
         ],
-      ),
-      style: TextButton.styleFrom(
-        foregroundColor: const Color(0xFFCCCCCC),
-        textStyle: const TextStyle(
-          fontFamily: 'Montserrat',
-          fontSize: 24,
-        ),
       ),
     ),
   );
@@ -53,20 +52,20 @@ Widget menuTile({
     children: [
       TextButton(
         onPressed: onPressed,
+        style: TextButton.styleFrom(
+          foregroundColor: const Color(0xFFCCCCCC),
+          textStyle: const TextStyle(
+            fontFamily: 'Montserrat',
+            fontSize: 24,
+          ),
+        ),
         child: Text(
           title,
           style: TextStyle(
             fontFamily: 'Montserrat',
             fontSize: 22,
             fontWeight: FontWeight.w600,
-            color: Theme.of(context).colorScheme.onBackground,
-          ),
-        ),
-        style: TextButton.styleFrom(
-          foregroundColor: const Color(0xFFCCCCCC),
-          textStyle: const TextStyle(
-            fontFamily: 'Montserrat',
-            fontSize: 24,
+            color: Theme.of(context).colorScheme.onSurface,
           ),
         ),
       ),

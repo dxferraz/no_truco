@@ -12,18 +12,18 @@ class Config extends StatelessWidget {
           style: TextStyle(
             fontFamily: 'Conthrax',
             fontSize: 20,
-            color: Theme.of(context).colorScheme.onBackground,
+            color: Theme.of(context).colorScheme.onSurface,
           ),
         ),
         centerTitle: true,
-        backgroundColor: Theme.of(context).colorScheme.background,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         elevation: 0,
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: Container(
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.onBackground.withOpacity(0.2),
+            color: Theme.of(context).colorScheme.onSurface.withOpacity(0.2),
             borderRadius: const BorderRadius.all(Radius.circular(25)),
           ),
           padding: const EdgeInsets.only(

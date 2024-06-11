@@ -5,18 +5,8 @@ import 'package:no_truco/pages/intro/introduction.dart';
 import '../../pages/configurations/configurations.dart';
 import '../../pages/my_account/my_account.dart';
 
-class Menu extends StatefulWidget {
+class Menu extends StatelessWidget {
   const Menu({Key? key}) : super(key: key);
-
-  @override
-  _MenuState createState() => _MenuState();
-}
-
-class _MenuState extends State<Menu> {
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,12 +14,12 @@ class _MenuState extends State<Menu> {
       width: MediaQuery.of(context).size.width - 50,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.background,
+        color: Theme.of(context).colorScheme.surface,
       ),
       //color: Color(0xFF1A1A1A),
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.background,
+          backgroundColor: Theme.of(context).colorScheme.surface,
           elevation: 0,
           leading: IconButton(
             onPressed: () {
@@ -38,21 +28,21 @@ class _MenuState extends State<Menu> {
             icon: Icon(
               Icons.close,
               size: 30,
-              color: Theme.of(context).colorScheme.onBackground,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
           centerTitle: true,
           title: Text(
             "Menu",
             style: TextStyle(
-              color: Theme.of(context).colorScheme.onBackground,
+              color: Theme.of(context).colorScheme.onSurface,
               fontSize: 24,
               fontFamily: 'Conthrax',
             ),
           ),
         ),
         body: Container(
-          color: Theme.of(context).colorScheme.background,
+          color: Theme.of(context).colorScheme.surface,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,7 +92,7 @@ class _MenuState extends State<Menu> {
                       fontFamily: "Montserrat",
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
-                      color: Theme.of(context).colorScheme.onBackground,
+                      color: Theme.of(context).colorScheme.onSurface,
                     ),
                   ),
                 ],
@@ -128,7 +118,7 @@ class _MenuState extends State<Menu> {
                           },
                           icon: Icon(
                             Icons.login,
-                            color: Theme.of(context).colorScheme.onBackground,
+                            color: Theme.of(context).colorScheme.onSurface,
                             size: 20,
                           ),
                         ),
@@ -143,7 +133,7 @@ class _MenuState extends State<Menu> {
                           },
                           icon: Icon(
                             Icons.logout,
-                            color: Theme.of(context).colorScheme.onBackground,
+                            color: Theme.of(context).colorScheme.onSurface,
                             size: 20,
                           ),
                         ),

@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
 
-class Historic extends StatefulWidget {
+class Historic extends StatelessWidget {
   const Historic({ Key? key }) : super(key: key);
 
-  @override
-  _HistoricState createState() => _HistoricState();
-
-}
-
-
-class _HistoricState extends State<Historic> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
