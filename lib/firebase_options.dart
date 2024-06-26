@@ -58,7 +58,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDY0VTCC6UffYQmQ_QPhimjRCiLtqpBur4',
-    appId: '1:945480577107:android:4108b9a84f8ede926816a6',
+    appId: '1:945480577107:android:775f3f15cf138dc16816a6',
     messagingSenderId: '945480577107',
     projectId: 'notruco',
     storageBucket: 'notruco.appspot.com',
@@ -70,7 +70,9 @@ class DefaultFirebaseOptions {
     messagingSenderId: '945480577107',
     projectId: 'notruco',
     storageBucket: 'notruco.appspot.com',
+    androidClientId: '945480577107-njoj62s1mect2b351fnm35630h5lmf0d.apps.googleusercontent.com',
     iosClientId: '945480577107-gg3r36kpjhaafeg5mupa3a5isbjt7h71.apps.googleusercontent.com',
     iosBundleId: 'com.example.noTruco',
   );
+
 }

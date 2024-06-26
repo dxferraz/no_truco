@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "945480577107",
+    "project_id": "notruco",
+    "storage_bucket": "notruco.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:945480577107:android:4108b9a84f8ede926816a6",
+        "android_client_info": {
+          "package_name": "com.example.no_truco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "945480577107-njoj62s1mect2b351fnm35630h5lmf0d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.no_truco",
+            "certificate_hash": "edfb47f6c97d862395df703dca1d5836abcad651"
+          }
+        },
+        {
+          "client_id": "945480577107-4bm3vldc8d3dm79v9vbicd7nqbt8b18f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDY0VTCC6UffYQmQ_QPhimjRCiLtqpBur4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "945480577107-4bm3vldc8d3dm79v9vbicd7nqbt8b18f.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "945480577107-gg3r36kpjhaafeg5mupa3a5isbjt7h71.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.noTruco"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:945480577107:android:775f3f15cf138dc16816a6",
+        "android_client_info": {
+          "package_name": "com.notruco.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "945480577107-4bm3vldc8d3dm79v9vbicd7nqbt8b18f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDY0VTCC6UffYQmQ_QPhimjRCiLtqpBur4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "945480577107-4bm3vldc8d3dm79v9vbicd7nqbt8b18f.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "945480577107-gg3r36kpjhaafeg5mupa3a5isbjt7h71.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.noTruco"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
