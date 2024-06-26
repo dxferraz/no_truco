@@ -7,6 +7,8 @@ import 'package:no_truco/pages/intro/introduction.dart';
 import 'package:no_truco/firebase_options.dart';
 import 'package:no_truco/features/counter/presenter/counter_page.dart.dart';
 import 'package:no_truco/core/themes/dark_theme.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:no_truco/core/themes/light_theme.dart';
 import 'package:no_truco/core/themes/theme_model.dart';
 import 'package:provider/provider.dart';
@@ -28,6 +30,7 @@ class MyApp extends StatefulWidget {
 class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return ChangeNotifierProvider(
       create: (_) => ThemeModel(),
       child: Consumer(
@@ -50,8 +53,17 @@ class MyAppState extends State<MyApp> {
                   ),
             child: MaterialApp(
               debugShowCheckedModeBanner: false,
-              title: 'NoTruco',
+              title: l10n.noTruco,
               theme: themeNotifier.isDark ? darkTheme : lightTheme,
+              localizationsDelegates: const [
+                AppLocalizations.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: const [
+                Locale('pt', 'BR'),
+              ],
               home: StreamBuilder(
                 stream: FirebaseAuth.instance.authStateChanges(),
                 builder: (context, snapshot) {

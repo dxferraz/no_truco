@@ -23,6 +23,9 @@ dependencies:
   uuid: ^4.0.0
   equatable: ^2.0.5
   shared_preferences: ^2.2.1
+  flutter_localizations:
+    sdk: flutter
+  intl: any
 
 dev_dependencies:
   flutter_test:
@@ -35,6 +38,7 @@ flutter_app_name:
 
 flutter:
   uses-material-design: true
+  generate: true
 
   assets:
     - assets/images/
